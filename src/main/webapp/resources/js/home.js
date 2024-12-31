@@ -24,7 +24,7 @@
     }
 
     function goToInquiryPage() {
-        window.location.href = "inquiry"; // Redirect to inquiry page
+        window.location.href = "/Board"; // Redirect to board page
     }
     
 

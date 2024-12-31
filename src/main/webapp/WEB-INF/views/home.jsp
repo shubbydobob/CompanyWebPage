@@ -15,7 +15,7 @@
 			<div class="header-left">
 				<h1 class="logo"></h1>
 				<h1 class="logo-text">
-					<a href=>시연이 아부지 회사 홈페이지</a>
+					<a href="/home">시연이 아부지 회사 홈페이지</a>
 				</h1>
 			</div>
 			<div class="header-right">
@@ -23,7 +23,7 @@
 					<ul class="navbar">
 						<li><a href="#about">회사 소개</a></li>
 						<li><a href="#Gallery">제품 제작 및 시공</a></li>
-						<li><a href="#contact">견적 문의</a></li>
+						<li><a href="/Board">견적 문의</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -82,6 +82,7 @@
 			<div id="galleryGrid" class="gallery-grid"></div>
 			<!-- 동적으로 여기에 추가 -->
 		</section>
+		
 		<!-- Footer Section -->
 		<footer class="footer">
 			<div class="map">

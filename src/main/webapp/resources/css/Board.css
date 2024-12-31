@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/* 전체 컨테이너 */
+.board-container {
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+/* 테이블 스타일 */
+.board-table th, .board-table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* 글쓰기 버튼 */
+.write-button {
+    margin: 20px 0;
+}
