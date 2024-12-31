@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+    background: url('/resources/images/welding-6733134_640.jpg') no-repeat center center/cover; /* 배경 이미지 */
+}
+
+/* 로그인 컨테이너 */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7); /* 반투명 검은색 */
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* 제목 스타일 */
+.titleArea h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f39c12;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #f39c12;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* 로그인 폼 */
+.loginForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%; /* 폼의 너비를 컨테이너에 맞춤 */
+}
+
+.loginForm label {
+    font-size: 1rem;
+    text-align: left;
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+.loginForm input {
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.loginForm input::placeholder {
+    color: #ddd;
+}
+
+.loginForm input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+/* 버튼 */
+.loginForm button {
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to right, #16a085, #27ae60);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.loginForm button:hover {
+    background: linear-gradient(to right, #1abc9c, #2ecc71);
+    transform: translateY(-3px);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+    }
+    .titleArea h2 {
+        font-size: 1.5rem;
+    }
+    .loginForm button {
+        font-size: 1rem;
+    }
+}

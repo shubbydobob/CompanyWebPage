@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.mapper.InquiryMapper">
+
+	<!-- 문의 저장 -->
+    <insert id="saveInquiry" parameterType="com.web.dto.InquiryDTO">
+        INSERT INTO inquiry (name, contact, email, inquiry_type, message, attachment_path)
+        VALUES (#{name}, #{contact}, #{email}, #{inquiry_type}, #{message}, #{attachment_path})
+    </insert>
+    
+     <!-- 문의 조회 -->
+    <select id="getAllInquiries" resultType="com.web.dto.InquiryDTO">
+       SELECT 
+            id, 
+            name, 
+            contact, 
+            email, 
+            inquiry_type AS inquiry_type, 
+            message, 
+            attachment_path AS attachment_path, 
+            created_at AS createdAt
+        FROM inquiry
+        ORDER BY created_at DESC
+    </select>
+    
+    
+</mapper>   

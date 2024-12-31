@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+body {
+	max-width: 1400px;
+	margin: 0 auto;
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+}
+
+.container {
+	padding: 20px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0;
+}
+
+.logo-text a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.logo-text a:hover {
+	text-decoration: none;
+}
+
+.header-left .logo {
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+
+.header-right .navbar {
+	list-style: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+.header-right .navbar li {
+	margin-left: 20px;
+}
+
+.header-right .navbar a {
+	text-decoration: none;
+	color: #333;
+	font-size: 1rem;
+}
+
+.slider {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.slides {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+	min-width: 100%;
+	height: 400px;
+	position: relative;
+	color: #fff;
+	text-align: center;
+	background-size: cover;
+	background-position: center;
+}
+
+.slide h2 {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 2.5rem;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+
+.slide p {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 1.2rem;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+
+.navigation-buttons {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	transform: translateY(-50%);
+}
+
+.navigation-buttons button {
+	background: rgba(0, 0, 0, 0.5);
+	border: none;
+	color: #fff;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+.about {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 300px;
+}
+
+.about h1 {
+	font-size: 2rem;
+	margin-bottom: 10px;
+}
+
+.about h2 {
+	font-size: 1.5rem;
+	color: #555;
+}
+
+.services {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 400px;
+}
+
+.services .service-grid {
+	display: flex;
+	gap: 20px;
+}
+
+.services .service-item {
+	flex: 1;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: #f9f9f9;
+	transition: background-color 0.3s ease;
+}
+
+.services .service-item:hover {
+	background-color: #e9e9e9;
+}
+
+.services .service-item h3 {
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+}
+
+.gallery-section {
+	padding: 20px;
+	text-align: center;
+	background-color: #f9f9f9;
+}
+
+.gallery-section h1 {
+	margin-bottom: 20px;
+	font-size: 2rem;
+}
+
+.gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr); /* 4열 */
+	gap: 20px;
+	justify-items: center;
+	align-items: center;
+}
+
+.gallery-item {
+	width: 100%;
+	max-width: 250px;
+	text-align: center;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+	transform: scale(1.05);
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+}
+
+.gallery-item p {
+	margin: 10px 0;
+	font-size: 0.9rem;
+	color: #555;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 20px;
+	background-color: #f9f9f9;
+	border-top: 1px solid #ddd;
+}
+
+.footer .map {
+	flex: 1;
+	padding-right: 20px;
+}
+
+.footer .map iframe {
+	width: 100%;
+	height: 200px;
+	border: none;
+}
+
+.footer .info {
+	flex: 1;
+}
+
+.footer .info ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.footer .info ul li {
+	margin-bottom: 10px;
+	font-size: 0.9rem;
+}
+
+.footer .info ul li span {
+	font-weight: bold;
+}
+
+.footer .social {
+	margin-top: 10px;
+}
+
+.footer .social a {
+	margin-right: 10px;
+	text-decoration: none;
+	font-size: 1.5rem;
+	color: #333;
+}
+
+.footer .social a:hover {
+	color: #007BFF;
+}
+
+.footer .copyright {
+	margin-top: 20px;
+	font-size: 0.8rem;
+	color: #666;
+	text-align: center;
+}
