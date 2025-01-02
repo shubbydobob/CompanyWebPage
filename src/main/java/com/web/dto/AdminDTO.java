@@ -4,6 +4,8 @@ public class AdminDTO {
 	
 	private String admin;
 	private String password;
+	private String role;
+	
 	public String getAdmin() {
 		return admin;
 	}
@@ -16,10 +18,17 @@ public class AdminDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	@Override
 	public String toString() {
-		return "adminDTO [admin=" + admin + ", password=" + password + "]";
+		return "AdminDTO [admin=" + admin + ", password=" + password + ", role=" + role + "]";
 	}
+	
 	
 
 }

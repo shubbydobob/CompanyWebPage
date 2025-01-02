@@ -13,6 +13,15 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <style>
+body.board-page {
+	margin: 0 !important;
+	max-width: 1400px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	font-family: Arial, sans-serif !important;
+	line-height: 1.6 !important;
+}
+
 .write-container {
 	max-width: 900px;
 	margin: 50px auto;
@@ -39,7 +48,7 @@
 }
 </style>
 </head>
-<body>
+<body class="board-page">
 	<div class="write-container">
 		<h2 class="text-center mb-4">견적문의 작성</h2>
 		<form action="/Board/Write" method="post">
@@ -55,7 +64,12 @@
 					type="password" class="form-control" id="password" name="password"
 					required>
 			</div>
-
+			<!-- 연락처 -->
+			<div class="mb-3">
+				<label for="contact" class="form-label">연락처</label> <input
+					type="text" class="form-control" id="contact" name="contact"
+					required>
+			</div>
 			<!-- 이메일 -->
 			<div class="mb-3">
 				<label for="email" class="form-label">E-mail</label> <input
