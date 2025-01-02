@@ -82,14 +82,12 @@
 	background-color: #c9302c;
 }
 
-/* 답변 폼 스타일 */
 #responseForm {
 	margin-top: 20px;
 	padding: 10px;
 	background-color: #f9f9f9;
 	border: 1px solid #ddd;
 	border-radius: 5px;
-	display: none;
 }
 
 textarea {
@@ -112,6 +110,29 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
 	background-color: #45a049;
+}
+
+.comment-section {
+	margin-top: 30px;
+}
+
+.comment {
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	padding: 15px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.comment .author {
+	font-weight: bold;
+	color: #333;
+}
+
+.comment .content {
+	margin-top: 10px;
+	font-size: 1rem;
+	color: #555;
 }
 </style>
 </head>
@@ -149,6 +170,25 @@ button[type="submit"]:hover {
 				<button type="submit" onclick="return confirm('게시글을 삭제하시겠습니까?');">삭제</button>
 			</form>
 		</div>
+	</div>
+	<!-- 댓글 작성 폼 -->
+	<div id="responseForm">
+		<h3>댓글 작성</h3>
+		<form action="/Board/Detail/${post.id}/addComment" method="post">
+			<textarea name="content" placeholder="댓글을 작성하세요"></textarea>
+			<button type="submit">댓글 달기</button>
+		</form>
+	</div>
+
+	<!-- 댓글 목록 -->
+	<div class="comment-section">
+		<h3>댓글</h3>
+		<c:forEach var="comment" items="${comments}">
+			<div class="comment">
+				<div class="author">${comment.author}</div>
+				<div class="content">${comment.content}</div>
+			</div>
+		</c:forEach>
 	</div>
 </body>
 </html>

@@ -53,5 +53,16 @@
 		WHERE id = #{id} AND password =
 		#{password}
 	</select>
+	<!-- Query to insert a comment -->
+	<insert id="addComment" parameterType="com.web.dto.BoardDTO">
+		INSERT INTO comments (board_id, author, content, created_date)
+		VALUES (#{id}, #{writer}, #{content}, NOW());
+	</insert>
+
+	<!-- Query to get comments by board id -->
+	<select id="getCommentsByBoardId" parameterType="int"
+		resultType="com.web.dto.BoardDTO">
+		SELECT * FROM comments WHERE board_id = #{boardId};
+	</select>
 </mapper>
   

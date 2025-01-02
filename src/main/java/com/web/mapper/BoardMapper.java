@@ -22,6 +22,8 @@ public interface BoardMapper {
     // 게시글 삭제
     void deletePost(@Param("id") int id);
 
+    void addComment(BoardDTO boardDTO);
+    
     // 비밀번호 확인 후 게시글 조회
     BoardDTO getPostByIdAndPassword(@Param("id") int id, @Param("password") String password);
 }

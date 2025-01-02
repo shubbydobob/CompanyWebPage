@@ -29,8 +29,8 @@ public class BoardController {
 	private BoardService boardService;
 
 	@Autowired
-    private CommentService commentService;
-	
+	private CommentService commentService;
+
 	// 게시글 목록 조회
 	@GetMapping
 	public String getAllPosts(Model model, HttpSession session) {
@@ -118,12 +118,12 @@ public class BoardController {
 		model.addAttribute("post", post);
 
 		// 관리자인 경우, 비밀번호 확인 없이 바로 상세 페이지로 이동
-	    if (isAdmin) {
-	        return "redirect:/Board/Detail/" + id; // 관리자용 게시글 상세보기 페이지로 리다이렉트
-	    } else {
-	        // 일반 사용자라면 비밀번호 확인 페이지로 이동
-	        return "/Board/View"; // 비밀번호 확인 페이지로 이동
-	    }
+		if (isAdmin) {
+			return "redirect:/Board/Detail/" + id; // 관리자용 게시글 상세보기 페이지로 리다이렉트
+		} else {
+			// 일반 사용자라면 비밀번호 확인 페이지로 이동
+			return "/Board/View"; // 비밀번호 확인 페이지로 이동
+		}
 	}
 
 	// 게시글 비밀번호 확인 후 상세 조회
@@ -145,57 +145,47 @@ public class BoardController {
 	}
 
 	@GetMapping("/Detail/{id}")
-    public String showDetailPage(@PathVariable int id, Model model, HttpSession session) {
-        
+	public String showDetailPage(@PathVariable int id, Model model, HttpSession session) {
+
 		boardService.increaseViews(id); // 조회수 증가
 
 		// Get the board details
-        BoardDTO post = boardService.getPostById(id);
-        model.addAttribute("post", post);
+		BoardDTO post = boardService.getPostById(id);
+		model.addAttribute("post", post);
 
-        // Get the comments for the board
-        List<CommentDTO> comments = commentService.getCommentsByBoardId(id);
-        model.addAttribute("comments", comments);
+		// Get the comments for the board
+		List<CommentDTO> comments = commentService.getCommentsByBoardId(id);
+		model.addAttribute("comments", comments);
 
-        return "/Board/Detail";
-    }
+		return "/Board/Detail";
+	}
 
-//	@PostMapping("/Detail/{id}/addResponse")
-//	public String addComment(@PathVariable int id, @RequestParam String content, 
-//	                         @RequestParam(required = false) String writer, HttpSession session) {
-//	    // 세션에서 로그인된 사용자 정보 가져오기
-//	    String username = (String) session.getAttribute("username");
-//
-//	    // author 값 설정
-//	    String author = (username != null) ? username : writer; // 로그인된 경우 username, 그렇지 않으면 writer
-//
-//	    if (author == null || author.trim().isEmpty()) {
-//	        throw new IllegalArgumentException("작성자 정보를 입력해주세요.");
-//	    }
-//
-//	    // 댓글 객체 생성
-//	    CommentDTO comment = new CommentDTO();
-//	    comment.setBoardId(id);
-//	    comment.setAuthor(author); // author 설정
-//	    comment.setContent(content);
-//
-//	    // 댓글 저장
-//	    commentService.addComment(comment);
-//
-//	    // 디버깅 로그 (선택 사항)
-//	    System.out.println("[DEBUG] author: " + author);
-//	    System.out.println("[DEBUG] content: " + content);
-//
-//	    // 상세 페이지로 리다이렉트
-//	    return "redirect:/Board/Detail/" + id;
-//	}
+	// 댓글 작성 처리
+	@PostMapping("/Detail/{id}/addComment")
+	public String addComment(@PathVariable int id, @RequestParam String content, HttpSession session,
+			RedirectAttributes redirectAttributes) {
+		// 세션에서 로그인된 사용자 정보 가져오기
+		String username = (String) session.getAttribute("username");
+
+		// 댓글 객체 생성
+		CommentDTO comment = new CommentDTO();
+		comment.setBoardId(id);
+		comment.setAuthor(username != null ? username : "Anonymous"); // 로그인된 사용자 이름, 아니면 'Anonymous'
+		comment.setContent(content);
+
+		// 댓글 저장
+		commentService.addComment(comment);
+
+		// 댓글을 저장한 후 게시글 상세 페이지로 리다이렉트
+		redirectAttributes.addFlashAttribute("message", "댓글이 등록되었습니다.");
+		return "redirect:/Board/Detail/" + id; // 상세 페이지로 리다이렉트
+	}
+
 	// 게시글 삭제
 	@PostMapping("/Delete/{id}")
 	public String deletePost(@PathVariable int id) {
 		boardService.deletePost(id);
 		return "redirect:/Board"; // 게시글 목록으로 리다이렉트
 	}
-	
-	
-	
+
 }
